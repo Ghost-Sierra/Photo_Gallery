@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bird Observations</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"> <!---Calls the correct styling file (CSS) to be used-->
+</head>
+<body>
+    <div class="container">
+        <img src="/static/images/logo.png" alt="Logo" class="logo"> <!---Calls the right logo and then defines it to be used in styling.-->
+
+        <main>
+            <a href="/gallery" class="gallery-button">Go to Bird Gallery</a> <!--- Sends the user to the bird gallery page which will act as a way to see images of birds and then learn there names-->
+
+            <h1>Bird Observations</h1>
+
+            <form method="POST">
+                <label for="bird">Bird:</label>
+                <input type="text" id="bird" name="bird"><br><br> <!---Allows the user to input the name of the bird they have seen-->
+
+                <label for="region">Region:</label>                 <!---Allows the user to select the continet where they saw the bird-->
+                <select id="region" name="region">
+                    <option value="Select Region">Select Region</option>
+                    {% for continent in continents %}
+                        <option value="{{ continent }}">{{ continent }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <label for="date">Date:</label>                 <!---Allows for the date to be added to the observation location.-->
+                <input type="date" id="date" name="date"><br><br>
+
+                <input type="submit" value="Add Observation">
+            </form>
+
+            <br>
+
+            <form action="/search" method="GET">
+                <label for="search_term">Search:</label>
+                <input type="text" id="search_term" name="search_term">
+                <input type="submit" value="Search">
+            </form>
+
+            <br>
+
+            {% if message %}
+                <div class="{{ message_class }}">{{ message }}</div>
+            {% endif %}
+
+            {% if results %}
+                <h2>Search Results:</h2>
+                <ul>
+                    {% for result in results %}
+                        <li>
+                            Bird: {{ result.bird }}, Region: {{ result.region }}, Date: {{ result.date }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </main>
+        <footer>
+            <p>© 2024 Ghost Sierra</p>
+        </footer>
+    </div>
+</body>
+</html>

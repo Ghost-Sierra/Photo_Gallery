@@ -1,0 +1,241 @@
+/* style.css */
+
+@font-face {
+    font-family: 'modern';
+    src: url('/static/fonts/Audiowide/Audiowide-Regular.ttf') format('truetype'),
+         url('/static/fonts/Audiowide/Audiowide-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+
+/* General Styles */
+
+.logo {
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
+    width: 100px; 
+    height: auto; 
+}
+
+
+body {
+    font-family: 'modern', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #201f1f;
+    color: #444;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+    padding: 30px;
+    background-color: #3a3636;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Navigation */
+a {
+    color: #263641;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #263641;
+}
+
+/* Style for the Gallery Button */
+.gallery-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #263641;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.gallery-button:hover {
+    background-color: #2980b9;
+}
+
+/* Forms */
+form {
+    padding: 25px;
+    background-color: #534d4d;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #6b5f5f;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Style the select element */
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    appearance: none; /* Remove default arrow in some browsers */
+    background-color: white;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px;
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Messages */
+.success {
+    background-color: #e2f8e9;
+    color: #27ae60;
+    border: none;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.error {
+    background-color: #fde2e4;
+    color: #e74c3c;
+    border: none;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+/* Search Results */
+h2 {
+    color: #3498db;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    transition: transform 0.2s ease-in-out;
+}
+
+li:hover {
+    transform: translateY(-3px);
+}
+
+/* Image Styling */
+img {
+    max-width: 220px;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery Page */
+/* Add gallery-specific styles here if needed */
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/* Flexbox centering */
+main {
+    flex: 1;
+}
+
+/* Responsive Design (optional) */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        font-size: 16px;
+    }
+}
