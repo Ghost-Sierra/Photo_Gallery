@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Observations</title>
+    <link rel="stylesheet" href="/static/css/style.css"> <!--- Styling sheet shared accross the whole website -->
+</head>
+<body>
+<header class="site-header">
+    <div class="container">
+        <a href="/" class="logo-link">
+            <img src="/static/images/logo1.png" alt="Bird Observations Logo" class="logo">
+            <span class="site-title">Bird Observations</span>  <!-- Site title -->
+        </a>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/observations">Observations</a></li> <!--  observation list -->
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <main>
+        {% block content %}{% endblock %} <!--- Main content of each page -->
+    </main>
+</body>
+</html>

@@ -1,77 +1,145 @@
-/* style.css */
+/* ---------------------------------------- */
+/*  1. GENERAL STYLES                       */
+/* ---------------------------------------- */
 
-@font-face {
-    font-family: 'modern';
-    src: url('/static/fonts/Audiowide/Audiowide-Regular.ttf') format('truetype'),
-         url('/static/fonts/Audiowide/Audiowide-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-
-/* General Styles */
-
-.logo {
-    position: absolute;
-    top: 10px; 
-    left: 10px; 
-    width: 100px; 
-    height: auto; 
-}
-
-
+/* Body */
 body {
-    font-family: 'modern', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #201f1f;
+    background-color: #f9f9f9;
     color: #444;
     line-height: 1.7;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh;  /* Ensure footer stays at bottom */
 }
 
+/* Container */
 .container {
     width: 70%;
     margin: auto;
     overflow: hidden;
     padding: 30px;
-    background-color: #3a3636;
+    background-color: #fff;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     position: relative;
 }
 
+/* Heading */
 h1 {
     text-align: center;
-    color: #ffffff;
+    color: #3498db;
     margin-bottom: 20px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Navigation */
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/*Flex box*/
+main {
+    flex: 1;
+}
+
+/* ---------------------------------------- */
+/*  2. HEADER STYLES                      */
+/* ---------------------------------------- */
+
+.site-header {
+    background-color: #fff; /* Or any color you prefer for the header */
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative; /* Needed if you want to position elements inside the header */
+    z-index: 100;  /*Ensure it's above other content*/
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between; /* Space out logo/title and nav */
+    align-items: center;
+    width: 80%; /*Header uses same width as main content*/
+    padding: 0 20px; /*Remove standard padding*/
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit; /* Use the body's text color */
+}
+
+/* General logo style moved from the 'logo' class to the .site-header .logo */
+.site-header .logo {
+    width: 80px; /* Adjust as needed */
+    height: auto;
+    margin-right: 15px;
+    position: static; /* Remove absolute positioning */
+    top: auto;
+    left: auto;
+}
+
+
+.site-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Main Navigation */
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 25px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #3498db;
+}
+
+/* ---------------------------------------- */
+/*  3. NAVIGATION                           */
+/* ---------------------------------------- */
+
+/* Links */
 a {
-    color: #263641;
+    color: #3498db;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #263641;
+    color: #2980b9;
 }
 
-/* Style for the Gallery Button */
+/* Gallery Button */
 .gallery-button {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #263641;
+    background-color: #3498db;
     color: #fff;
     padding: 8px 12px;
     border-radius: 5px;
-    text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
@@ -79,28 +147,50 @@ a:hover {
     background-color: #2980b9;
 }
 
-/* Forms */
+/* About Us Button */
+.about-button {
+    position: absolute;
+    top: 10px;
+    right: 200px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.about-button:hover {
+    background-color: #2980b9;
+}
+
+/* ---------------------------------------- */
+/*  4. FORMS                              */
+/* ---------------------------------------- */
+
+/* Form */
 form {
     padding: 25px;
-    background-color: #534d4d;
+    background-color: #fefefe;
     border: none;
     border-radius: 8px;
     margin-bottom: 30px;
 }
 
+/* Form Labels */
 label {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: #ffffff;
+    color: #555;
 }
 
+/* Text and Date Inputs */
 input[type="text"],
 input[type="date"] {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid #6b5f5f;
+    border: 1px solid #ddd;
     border-radius: 6px;
     box-sizing: border-box;
     font-size: 16px;
@@ -113,7 +203,7 @@ input[type="date"]:focus {
     outline: none;
 }
 
-/* Style the select element */
+/* Select Element */
 select {
     width: 100%;
     padding: 12px;
@@ -122,9 +212,9 @@ select {
     border-radius: 6px;
     box-sizing: border-box;
     font-size: 16px;
-    appearance: none; /* Remove default arrow in some browsers */
+    appearance: none; /* Remove default arrow */
     background-color: white;
-    background-image: url("");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23777' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"); /* Full acknolwdgement I do not fully understand how or why this works but in troubel shooting this worked and when I remove it things start to break.*/
     background-repeat: no-repeat;
     background-position: right 10px top 50%;
     background-size: 12px;
@@ -136,7 +226,7 @@ select:focus {
     outline: none;
 }
 
-
+/* Submit Button */
 input[type="submit"] {
     background-color: #3498db;
     color: #fff;
@@ -152,7 +242,11 @@ input[type="submit"]:hover {
     background-color: #2980b9;
 }
 
-/* Messages */
+/* ---------------------------------------- */
+/*  5. MESSAGES                            */
+/* ---------------------------------------- */
+
+/* Success Message */
 .success {
     background-color: #e2f8e9;
     color: #27ae60;
@@ -162,6 +256,7 @@ input[type="submit"]:hover {
     border-radius: 6px;
 }
 
+/* Error Message */
 .error {
     background-color: #fde2e4;
     color: #e74c3c;
@@ -171,18 +266,24 @@ input[type="submit"]:hover {
     border-radius: 6px;
 }
 
-/* Search Results */
+/* ---------------------------------------- */
+/*  6. SEARCH RESULTS                       */
+/* ---------------------------------------- */
+
+/* Search Results Heading */
 h2 {
     color: #3498db;
     margin-top: 30px;
     margin-bottom: 15px;
 }
 
+/* Unordered List */
 ul {
     list-style: none;
     padding: 0;
 }
 
+/* List Item */
 li {
     padding: 15px;
     margin-bottom: 10px;
@@ -196,34 +297,89 @@ li:hover {
     transform: translateY(-3px);
 }
 
-/* Image Styling */
-img {
-    max-width: 220px;
-    height: auto;
-    display: block;
-    margin: 15px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* ---------------------------------------- */
+/*  7. GALLERY (GRID + HOVER)              */
+/* ---------------------------------------- */
+
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive Columns */
+    gap: 10px;            /* Spacing Between Images */
+    width: 80%;            /* Adjust as needed for overall width */
+    margin: 0 auto;        /* Center the grid */
+    padding: 10px;          /* Add padding around the grid */
 }
 
-/* Gallery Page */
-/* Add gallery-specific styles here if needed */
+/* Ensure grid fills container: remove any margins and padding by default on children*/
+.grid-container > * {
+    margin: 0;
+    padding: 0;
+}
 
-/* Footer */
-footer {
-    background-color: #2c3e50;
-    color: #fff;
+
+/* Image Container (Fixed Aspect Ratio) */
+.image-container {
+    position: relative;  /* For absolute positioning of image & overlay */
+    overflow: hidden;    /* Hide overflow from scaling */
+    border-radius: 10px; /* Optional: Rounded Corners */
+    width: 100%;          /* Fill the grid cell */
+    padding-top: 66.66%; /* 3:2 aspect ratio (height = 2/3 of width) */
+}
+
+/* Image Styles */
+.image-container img {
+    position: absolute;  /* Fill the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Crop to fill, maintaining aspect ratio */
+    display: block;    /* Remove any extra space */
+    transition: transform 0.3s ease; /*Optional zoom effect*/
+}
+
+/* Image hover style (optional zoom) */
+.image-container:hover img {
+    transform: scale(1.1);  /* Zoom in on hover */
+}
+
+/* Overlay Styles */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* White with opacity */
+    display: flex;          /* Center the text */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;             /* Hidden by default */
+    transition: opacity 0.3s ease;  /* Fade in/out */
+    border-radius: inherit; /* Inherit corner rounding */
+}
+
+/* Hover effect: Show overlay */
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+/* Overlay Text */
+.overlay .text {
+    color: #444;         /* Use your text color */
+    font-size: 1.2em;
+    font-weight: bold;
     text-align: center;
-    padding: 15px;
-    margin-top: 40px;
+    padding: 10px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Optional shadow */
 }
 
-/* Flexbox centering */
-main {
-    flex: 1;
-}
 
-/* Responsive Design (optional) */
+/* ---------------------------------------- */
+/*  8. RESPONSIVE DESIGN (MEDIA QUERY)      */
+/* ---------------------------------------- */
+
 @media (max-width: 768px) {
     .container {
         width: 90%;
@@ -237,5 +393,139 @@ main {
 
     input[type="submit"] {
         font-size: 16px;
+    }
+
+    /* Adjust Gallery width for smaller screens */
+    .grid-container {
+        width: 95%; /*  More screen space for the gallery */
+    }
+
+    /* Responsive Header */
+    .site-header .container {
+        flex-direction: column; /* Stack logo/title and nav */
+        align-items: flex-start;  /* Align items to the left */
+    }
+
+    .site-header .logo { /*logo on smaller screens */
+        margin-bottom: 10px; /* Add space below logo */
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* Stack nav items vertically */
+    }
+
+    .main-nav li {
+        margin-left: 0;
+        margin-bottom: 10px; /* Add space between nav items */
+    }
+}
+
+/* ---------------------------------------- */
+/* 9. OBSERVATION STYLES  */
+/* ---------------------------------------- */
+
+/* Style for each observation detail */
+.observation-detail {
+    display: inline-block; /* Show the details inline */
+    margin-right: 15px;    /* Add spacing between the details */
+    margin-bottom: 5px;
+}
+
+/*Style for the list*/
+li {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: row; /* Lay out the content horizontally */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Distribute the space evenly */
+}
+
+/* Delete Button Styles*/
+.delete-form button[type="submit"] {  /* Target only delete buttons */
+    background-color: #e74c3c; /* Red color */
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin-top: 0; /* Remove top margin */
+    display: inline-block; /* Keep button inline with content */
+}
+
+.delete-form button[type="submit"]:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+.delete-form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Edit Button Styles (in Observations List) */
+a[href*="/edit/"] {  /* Target the edit link with the /edit/ path */
+    background-color: #3498db; /* Blue color */
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Keep it on the same line */
+}
+
+a[href*="/edit/"]:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Submit Button in Edit Form Styles */
+form[action*="/update/"] input[type="submit"] {
+    background-color: #2ecc71; /* Green color */
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /*Add Margin from other items*/
+}
+
+form[action*="/update/"] input[type="submit"]:hover {
+    background-color: #27ae60; /* Darker green on hover */
+}
+
+
+/* ---------------------------------------- */
+/*  8. RESPONSIVE DESIGN (MEDIA QUERY)      */
+/* ---------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .delete-form button[type="submit"] {
+        font-size: 12px; /* Adjust font size for smaller screens */
+        padding: 6px 10px;
+    }
+
+        /* Edit Button Styles (in Observations List) on smaller screens */
+    a[href*="/edit/"] {
+        font-size: 12px; /* Adjust font size for smaller screens */
+        padding: 6px 10px;
+        margin-bottom: 5px;/* Add spacing between edit link*/
+    }
+
+    li {
+        flex-direction: column; /* Revert to vertical layout on smaller screens */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .observation-detail {
+        display: block;      /*Stack the observation details*/
+        margin-bottom: 5px; /* Add spacing between the details */
     }
 }

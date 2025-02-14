@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit Observation</h1>
+
+<form method="POST" action="{{ url_for('update_observation', id=observation['id']) }}">
+    <label for="bird">Bird:</label><br>
+    <input type="text" id="bird" name="bird" value="{{ observation['bird'] }}"><br><br>
+
+    <label for="region">Region:</label><br>
+    <select id="region" name="region">
+        {% for continent in continents %}
+            <option value="{{ continent }}" {% if continent == observation['region'] %}selected{% endif %}>{{ continent }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="date">Date:</label><br>
+    <input type="text" id="date" name="date" value="{{ observation['date'] }}"><br><br>
+
+    <button type="submit">Update</button>
+    <a href="{{ url_for('observations') }}">Cancel</a>
+</form>
+
+{% endblock %}

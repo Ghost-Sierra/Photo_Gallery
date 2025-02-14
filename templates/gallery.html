@@ -1,29 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bird Photo Gallery</title>
-    <link rel="stylesheet" href="/static/css/gallery.css">
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %} <!--- Not a requirment but this shows images and allows the user on hover to view the images with the name of the bird -->
     <div class="container">
         <h1>Bird Photo Gallery</h1>
-        <table>
-            <tr>
-                <th><img src="/static/images/image1.jpg" alt="Eastern Yellow Robin"></th>
-                <th><img src="/static/images/image2.jpg" alt="Sulphur Crested Cockatoo"></th>
-            </tr>
-            <tr>
-                <td><img src="/static/images/image3.jpg" alt="Sulphur Crested Cockatoo"></td>
-                <td><img src="/static/images/image4.jpg" alt="Australian Kookaburra"></td>
-            </tr>
-            <tr>
-                <td><img src="/static/images/image5.jpg" alt="Little Black Cormorant"></td>
-                <td><img src="/static/images/image6.jpg" alt="Little Black Cormorant"></td>
-            </tr>            
-        </table>    
-            <a href="/">Back to Home</a>
-    </div>
-</body>
-</html>
+        <div class="gallery">
+            <div class="image-container">
+                <img src="/static/images/image1.jpg" alt="Eastern Yellow Robin">
+                <div class="overlay">
+                    <div class="text">Eastern Yellow Robin</div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="/static/images/image2.jpg" alt="Sulphur Crested Cockatoo">
+                <div class="overlay">
+                    <div class="text">Sulphur Crested Cockatoo</div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="/static/images/image3.jpg" alt="Sulphur Crested Cockatoo">
+                <div class="overlay">
+                    <div class="text">Sulphur Crested Cockatoo</div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="/static/images/image4.jpg" alt="Australian Kookaburra">
+                <div class="overlay">
+                    <div class="text">Australian Kookaburra</div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="/static/images/image5.jpg" alt="Little Black Cormorant">
+                <div class="overlay">
+                    <div class="text">Little Black Cormorant</div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="/static/images/image6.jpg" alt="Little Black Cormorant">
+                <div class="overlay">
+                    <div class="text">Little Black Cormorant</div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="/static/images/image7.jpg" alt="Holder Image">
+                <div class="overlay">
+                    <div class="text">Eastern Spinebill</div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="/static/images/image8.jpg" alt="Holder Image">
+                <div class="overlay">
+                    <div class="text">Australian Miner</div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="/static/images/image9.jpg" alt="Holder Image">
+                <div class="overlay">
+                    <div class="text">Male Superb Fairy Wren</div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="/static/images/image10.jpg" alt="Holder Image">
+                <div class="overlay">
+                    <div class="text">Sulphur Crested Cockatoo</div>
+                </div>
+            </div>                                    
+{% endblock %}
