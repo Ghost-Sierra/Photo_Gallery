@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block content %} <!---This block content allows for the website to be more efficent and also have the same banner for page directions-->
     <a href="/gallery" class="gallery-button">Go to Bird Gallery</a>
     <a href="/about" class="about-button">Go to about us</a>
     <h1>Bird Observations</h1>
@@ -30,7 +30,7 @@
         <input type="text" id="search_term" name="search_term">
         <input type="submit" value="Search">
     </form>
-
+<!--- Database searching and sending information to the Database and server.py file -->
     <br>
 
     {% if message %}

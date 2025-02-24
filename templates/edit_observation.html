@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Edit Observation</h1>
+<h1>Edit Observation</h1> <!--- Not accessible from the main pages and only accessible after going in and editing a record. -->
 
 <form method="POST" action="{{ url_for('update_observation', id=observation['id']) }}">
     <label for="bird">Bird:</label><br>

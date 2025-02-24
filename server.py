@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-import sqlite3
+import sqlite3 #Importing Modules
 
 app = Flask(__name__, template_folder='templates')
 
@@ -15,7 +15,6 @@ CONTINENTS = [
     "South America"
 ]
 
-
 def create_table():
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
@@ -29,7 +28,6 @@ def create_table():
     ''')
     conn.commit()
     conn.close()
-
 
 @app.route('/', methods=['GET', 'POST'])  # Corrected to handle initial form display
 def index():
@@ -64,8 +62,6 @@ def index():
 
     return render_template('index.html', message=message, message_class=message_class, results=results, continents=CONTINENTS)
 
-
-
 @app.route('/search')
 def search():
     search_term = request.args.get('search_term')
@@ -81,9 +77,7 @@ def search():
             query = "SELECT bird, region, date FROM bird_observations WHERE LOWER(bird) LIKE ? OR LOWER(region) LIKE ?"
             search_pattern = f"%{search_term.lower()}%"
             cursor.execute(query, (search_pattern, search_pattern))
-            #results = cursor.fetchall()
-            #results = [{'bird': row[0], 'region': row[1], 'date': row[2]} for row in results]  # Format here
-            results = [dict(zip(['bird', 'region', 'date'], row)) for row in cursor.fetchall()] # Fixed Line
+            results = [dict(zip(['bird', 'region', 'date'], row)) for row in cursor.fetchall()]
 
         conn.close()
 
@@ -99,16 +93,16 @@ def search():
 def gallery():
     return render_template('gallery.html')
 
-@app.route('/observations')  # Added observations Route
+@app.route('/observations')  #Observations Route which lists out all of the Database contents
 def observations():
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
-    cursor.execute("SELECT id, bird, region, date FROM bird_observations") # changed to include id
-    observations = [dict(zip(['id', 'bird', 'region', 'date'], row)) for row in cursor.fetchall()] # added id to the zip
+    cursor.execute("SELECT id, bird, region, date FROM bird_observations")
+    observations = [dict(zip(['id', 'bird', 'region', 'date'], row)) for row in cursor.fetchall()]
     conn.close()
     return render_template('observations.html', observations=observations)
 
-@app.route('/delete/<int:id>', methods=['POST']) # Added Delete Function
+@app.route('/delete/<int:id>', methods=['POST']) #Delete Function
 def delete_observation(id):
     try:
         conn = sqlite3.connect(DATABASE)
@@ -118,7 +112,6 @@ def delete_observation(id):
         conn.close()
     except Exception as e:
         print(f"Error deleting observation: {e}")  # Log the error
-        # Optionally, you could set a message and redirect back to the observations page with an error message.
 
     return redirect(url_for('observations'))  # Redirect back to observations page
 
@@ -129,7 +122,7 @@ def edit_observation(id):
     cursor.execute("SELECT id, bird, region, date FROM bird_observations WHERE id = ?", (id,))
     observation = dict(zip(['id', 'bird', 'region', 'date'], cursor.fetchone()))
     conn.close()
-    return render_template('edit_observation.html', observation=observation, continents=CONTINENTS) #Passing Continents
+    return render_template('edit_observation.html', observation=observation, continents=CONTINENTS) 
 
 @app.route('/update/<int:id>', methods=['POST'])
 def update_observation(id):
@@ -145,7 +138,7 @@ def update_observation(id):
         conn.close()
     except Exception as e:
         print(f"Error updating observation: {e}")
-        # Optionally handle the error and display a message
+        # handling of error and displaying a message
 
     return redirect(url_for('observations'))  # Redirect back to observations page
 
